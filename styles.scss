@@ -1,0 +1,140 @@
+
+$forest: rgba(17, 32, 30, 1);
+$teal: rgba(21, 64, 66, 1);
+$mint: rgba(213, 233, 221, 1);
+$pink: rgba(222, 206, 200, 1);
+$cloud: rgba(212, 214, 213, 1);
+$sky: rgba(148, 168, 179, 1);
+
+@mixin click_btn{
+    background: $teal;
+    cursor: pointer;
+    width: 60px;
+    padding: 8px; 
+    color:rgb(217, 217, 219);
+    @include font;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+@mixin btn_efct{
+    .click_btn:hover{
+        .click_btn:focus{
+            .click_btn:active{
+                box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+@mixin font{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+body{
+    background-color: $cloud;
+}
+header{
+    background-color: $mint;
+    border-bottom: 1px solid rgb(217, 217, 219);
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    top: 0;
+    height:60px;
+}
+.header_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    min-height: 60px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.logo{
+    @include font;
+    font-weight: 800;
+    font-size: 30px;
+    color: $teal;
+}
+.nav_list{
+    display: flex;
+    column-gap: 40px;
+}
+.nav_link{
+    color: rgba(0, 0, 0, 1);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.4s;
+    @include font;
+}
+.nav_link:hover{
+    color: $forest;
+}
+.btn{
+    @include click_btn;
+    @include btn_efct;
+}
+
+
+@mixin category{
+    padding: 10px;
+}
+.category_item{
+    @include font;
+    @include category;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: $pink;
+    border-radius: 5px;
+    width: 280px;
+    height: 300px;
+    margin: 10px;
+}
+main{
+    margin-top: 60.001px;
+}
+.user_category{
+    margin-top: 70px;
+    margin-left: 156px;
+    margin-right: 156px;
+    background: $forest;
+    border-radius: 5px;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+.category_title{
+    background: $sky;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.login_btn{
+    @include click_btn;
+    @include btn_efct;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    border-radius: 25px;
+}
